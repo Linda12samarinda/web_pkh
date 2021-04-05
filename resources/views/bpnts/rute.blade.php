@@ -13,6 +13,8 @@
 </div>
 
 <script>
+$(document).ready(function(){
+
     x = navigator.geolocation;
     x.getCurrentPosition(success, failure)
 
@@ -56,6 +58,8 @@
     function failure(){
         
     }
+
+});
 </script>
 
 @endsection
