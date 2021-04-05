@@ -32,11 +32,14 @@
         </form>
     </div>
 
-    <div id="panel"></div>
-
-    <div class="content" style="width: 100%;height: 100%;">
-       <div id="map"></div>
-   </div>
+    <div id="panel" class="row">
+      <div class="content col-lg-6 ml-2" style="width: 50%;height: 50%; padding-left: 20px;">
+          <div id="map"></div>
+      </div>
+      <div class="content col-lg-6 " style="width: 50%;height: 50%;">
+          <div id="detail"></div>
+      </div>
+    </div>
 </div>
 
 <script>
@@ -99,9 +102,8 @@
             }
 
             var map = new google.maps.Map(document.getElementById('map'), mapOptions);   
-            var marker = new google.maps.Marker({map: map, position:coords});
             directionsDisplay.setMap(map);
-            directionsDisplay.setPanel(document.getElementById('panel'));
+            directionsDisplay.setPanel(document.getElementById('detail'));
 
             var start = pos;
             var end = new google.maps.LatLng(-0.58835,117.16462);
