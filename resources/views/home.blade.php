@@ -40,7 +40,6 @@
 </div>
 
 <script>
-
     var map = new GMaps({
       el: '#map',
       zoom: 15,
@@ -78,17 +77,33 @@
           alert("Tempat tujuan tidak boleh kosong!");
          }else{
 
+           x = navigator.geolocation;
+           x.getCurrentPosition(success, failure)
+
+           function success(position){
+            var pos = {
+                enableHighAccuracy: true,
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            }; 
+            var myLat = position.coords.latitude;
+            var myLong = position.coords.longitude;
+            var coords = new google.maps.LatLng(myLat,myLong);
+
             var directionsService = new google.maps.DirectionsService();
             var directionsDisplay = new google.maps.DirectionsRenderer();
             var mapOptions = {
               zoom:12,
+              center: coords,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
             }
 
-            var map = new google.maps.Map(document.getElementById('map'), mapOptions);              
+            var map = new google.maps.Map(document.getElementById('map'), mapOptions);   
+            var marker = new google.maps.Marker({map: map, position:coords});
             directionsDisplay.setMap(map);
             directionsDisplay.setPanel(document.getElementById('panel'));
 
-            var start = new google.maps.LatLng(-0.58835,117.1646);
+            var start = pos;
             var end = new google.maps.LatLng(-0.58835,117.16462);
             var request = {
               origin: start,
@@ -100,6 +115,12 @@
                 directionsDisplay.setDirections(result);
               }
             });
+
+           }
+
+            function failure(){
+              
+            }
 
          }
 
