@@ -34,7 +34,7 @@ class HomeController extends Controller
             $distance = $d_calculator->CalculateDistance($mylat,$myLng, floatval($key->lat), floatval($key->lang));
             $key['distance'] = $distance;
         }
-        //return $myLng;
+        //return $distance;
         return view('home',compact('data','distance'));
     }
 }

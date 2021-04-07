@@ -9,6 +9,7 @@ use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use App\Models\Bpnt;
+use Salman\GeoFence\Service\GeoFenceCalculator;
 use App\Models\Rt;
 use Flash;
 use Response;
@@ -189,8 +190,10 @@ class BpntController extends AppBaseController
 
         return redirect(route('bpnts.index'));
     }
-    public function directions($id)
+    public function directions(Request $request,$id)
     {
+        $mylat = floatval($request->lat);
+        $myLng = floatval($request->lang);
         $bpnt = $this->bpntRepository->find($id);
 
         if (empty($bpnt)) {
@@ -198,6 +201,11 @@ class BpntController extends AppBaseController
 
             return redirect(route('bpnts.index'));
         }
+        $d_calculator = new GeoFenceCalculator();
+
+            $distance = $d_calculator->CalculateDistance($mylat,$myLng, floatval($bpnt->lat), floatval($bpnt->lang));
+            $bpnt['distance'] = $distance;
+            //return $distance;
 
         return view('bpnts.rute')->with('bpnt', $bpnt);
     }

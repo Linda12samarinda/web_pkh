@@ -49,11 +49,15 @@
             lat: myLat,
             lng: myLong
         });
+        map.addMarker({
+            lat: myLat,
+            lng: myLong
+        });
 
         // var distante = $d_calculator->CalculateDistance(myLat,myLong, -0.589936, 117.170079);
 
         @foreach($data as $d)
-        @if ($d->distance < 3)
+        @if ($d->distance < 4)
             @if (!empty($d->lat)){
                 map.addMarker({
                     lat: '{{$d->lat}}',
