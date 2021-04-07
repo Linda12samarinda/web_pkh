@@ -31,7 +31,7 @@ $(document).ready(function(){
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();
     var mapOptions = {
-        zoom:12,
+        zoom:9,
         center: coords,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     }

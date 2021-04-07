@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Salman\GeoFence\Service\GeoFenceCalculator;
 use App\Models\Bpnt;
 
 class HomeController extends Controller
@@ -22,10 +23,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Bpnt::all();
+        $mylat = floatval($request->lat);
+        $myLng = floatval($request->lang);
 
-        return view('home',compact('data'));
+        $data = Bpnt::all();
+        $d_calculator = new GeoFenceCalculator();
+        foreach ($data as $key ) {
+            $distance = $d_calculator->CalculateDistance($mylat,$myLng, floatval($key->lat), floatval($key->lang));
+            $key['distance'] = $distance;
+        }
+        //return $myLng;
+        return view('home',compact('data','distance'));
     }
 }
