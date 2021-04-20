@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Map BPNT</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <!-- <script src="http://maps.google.com/maps/api/js?key=AIzaSyB1RD7zebqdO7CqN3mGAJuOwD9gN0P8dfI"></script> -->
-    <script src="http://maps.google.com/maps/api/js?key=AIzaSyB1wZZqn8OiFRUNDR3MSMHS32NvGwknVDI"></script>
+    <!-- <script src="https://maps.google.com/maps/api/js?key=AIzaSyB5NxD8Ze8RKUitZFrkpPEaT6ZmIwJdmFM"></script> -->
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBsZrS5LkAXAqzgVYMJQQMYOoWgYCHHZTU"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">

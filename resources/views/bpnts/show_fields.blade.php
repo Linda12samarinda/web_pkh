@@ -73,7 +73,7 @@
 <!-- Foto Rumah Field -->
 <div class="form-group">
     {!! Form::label('foto_rumah', 'Foto Rumah:') !!}
-    <p>{{ $bpnt->foto_rumah }}</p>
+    <p><img src="{!! asset($bpnt->foto_rumah) !!}" alt=""> </p>
 </div>
 
 <!-- Keterangan Field -->

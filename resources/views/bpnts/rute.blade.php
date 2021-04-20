@@ -26,7 +26,7 @@ $(document).ready(function(){
     }; 
     var myLat = position.coords.latitude;
     var myLong = position.coords.longitude;
-    var coords = new google.maps.LatLng(myLat,myLong);
+    var coords = new google.maps.LatLng('-0.589936','117.170079');
 
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();
@@ -40,10 +40,17 @@ $(document).ready(function(){
         //document.location.search = 'lat=-0.589936&&lang=117.170079';
         document.location.search = 'lat='+myLat+'&&lang='+myLong;
     }
-    var map = new google.maps.Map(document.getElementById('map'), mapOptions);   
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    // var map = new GMaps({
+    //         el: '#map',
+    //         zoom: 15,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP,
+    //         lat: myLat,
+    //         lng: myLong
+    //     });   
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById('detail'));
-    @if ($bpnt->distance < 0.9 )
+    @if ($bpnt->distance < 0.9)
     var start = pos;
     var end = new google.maps.LatLng({{$bpnt->lat}},{{$bpnt->lang}});
     var request = {

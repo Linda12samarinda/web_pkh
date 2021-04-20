@@ -57,13 +57,13 @@
         // var distante = $d_calculator->CalculateDistance(myLat,myLong, -0.589936, 117.170079);
 
         @foreach($data as $d)
-        @if ($d->distance < 4)
+        @if ($d->distance < 9)
             @if (!empty($d->lat)){
                 map.addMarker({
                     lat: '{{$d->lat}}',
                     lng: '{{$d->lang}}',
                     title: '{{$d->name}} #',
-                    icon: 'img/{{$d->kategori->icon}}',
+                    icon: 'img/{{ $d->kategori->icon }}',
                     infoWindow: {
                         content :  "<div style='float:left'><img src='{!! asset($d->foto_rumah) !!}' width='100' height='90px'></div>"+
                                     "<div style='float:right; padding: 10px;'><b>{{$d->name}}</b><br/>{{$d->no_kk}}<br/> {{$d->alamat}},{{$d->rt->kelurahan->name}}<br>{{$d->rt->kelurahan->kecamatan->name}}<br> <a href='{{route('bpnt.directions',[$d->id])}}'>Rute</a>"+

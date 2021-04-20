@@ -151,7 +151,7 @@ class BpntController extends AppBaseController
        if($request->has('foto_rumah')){
 
             $foto = $request->file('foto_rumah');
-            $filename = $bpnt->id.'.'.$foto->getClientOriginalExtension();
+            $filename = $bpnt->name.'_'.$bpnt->id.'.'.$foto->getClientOriginalExtension();
             $saveFoto = $request->foto_rumah->storeAs('/public/foto_rumah',$filename,'local');
             $bpnt->foto_rumah= "storage".substr($saveFoto, strpos($saveFoto, '/'));
             $bpnt->save();
